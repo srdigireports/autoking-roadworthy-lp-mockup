@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Roadworthy Certificate | Auto King</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:#39FF14; --black:#000; --dark:#0a0a0a;
+  --card:#111; --card2:#161616; --border:rgba(57,255,20,0.12);
+  --silver:#888; --light:#ccc; --white:#fff; --red:#ff4444;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Raleway',sans-serif;background:var(--dark);color:var(--white);font-size:16px;line-height:1.6;}
+.section-label{position:absolute;top:0;left:0;background:rgba(57,255,20,0.92);color:#000;font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;z-index:100;}
+.top-strip{position:relative;background:var(--green);padding:10px 20px;display:flex;justify-content:center;align-items:center;gap:30px;flex-wrap:wrap;}
+.top-strip a{color:#000;font-weight:900;font-size:14px;letter-spacing:1px;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.top-strip span{font-size:12px;font-weight:700;color:#000;opacity:.75;}
+.logo-bar{position:relative;background:var(--black);padding:14px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--green);}
+.logo{font-size:22px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--white);}
+.logo span{color:var(--green);}
+.logo-sub{font-size:8px;letter-spacing:4px;color:var(--silver);text-transform:uppercase;display:block;margin-top:2px;}
+.logo-right{text-align:right;font-size:11px;color:var(--silver);}
+.logo-right strong{display:block;color:var(--green);font-size:13px;}
+.hero{position:relative;background:var(--black);padding:50px 30px 60px;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(57,255,20,.07) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:50px;align-items:start;}
+.urgency-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,68,68,.12);border:1px solid rgba(255,68,68,.3);color:#ff6666;font-size:12px;font-weight:700;letter-spacing:1px;padding:6px 14px;border-radius:2px;margin-bottom:20px;text-transform:uppercase;}
+.urgency-dot{width:7px;height:7px;background:#ff4444;border-radius:50%;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.3);}}
+.hero-h1{font-size:42px;font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;text-transform:uppercase;}
+.hero-h1 .city-highlight{color:var(--green);display:block;}
+.hero-sub{font-size:17px;color:var(--light);margin-bottom:24px;font-weight:400;line-height:1.6;}
+.hero-sub strong{color:var(--white);font-weight:700;}
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+.badge{display:flex;align-items:center;gap:7px;background:rgba(57,255,20,.08);border:1px solid var(--border);padding:8px 14px;border-radius:2px;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--white);}
+.badge-icon{color:var(--green);font-size:14px;}
+.form-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--green);border-radius:4px;padding:28px;position:relative;}
+.form-title{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;color:var(--white);}
+.form-subtitle{font-size:12px;color:var(--green);font-weight:700;margin-bottom:20px;}
+.form-price-tag{background:rgba(57,255,20,.1);border:1px solid var(--border);border-radius:2px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--green);margin-bottom:18px;text-align:center;}
+.form-group{margin-bottom:12px;}
+.form-group label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-bottom:5px;}
+.form-group input,.form-group select{width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:3px;padding:12px 14px;font-family:'Raleway',sans-serif;font-size:14px;color:var(--white);transition:border-color .2s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--green);}
+.form-group select{appearance:none;cursor:pointer;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+input[name="gclid"]{display:none;}
+.form-cta{width:100%;background:var(--green);color:#000;border:none;padding:16px;font-family:'Raleway',sans-serif;font-size:15px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-radius:3px;cursor:pointer;margin-top:6px;transition:transform .15s,background .2s;}
+.form-cta:hover{background:#4fff20;transform:translateY(-1px);}
+.form-trust{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:11px;color:var(--silver);justify-content:center;}
+.form-trust-icon{color:var(--green);}
+.form-divider{display:flex;align-items:center;gap:10px;margin:14px 0;color:var(--silver);font-size:11px;font-weight:700;letter-spacing:1px;}
+.form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:#2a2a2a;}
+.call-cta{display:block;text-align:center;background:#111;border:1px solid #2a2a2a;color:var(--white);padding:13px;border-radius:3px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:border-color .2s;}
+.call-cta:hover{border-color:var(--green);color:var(--green);}
+.call-cta span{color:var(--green);}
+.trust-bar{position:relative;background:var(--black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 30px;}
+.trust-bar-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:20px;}
+.trust-item{display:flex;align-items:center;gap:12px;}
+.trust-icon{width:42px;height:42px;background:rgba(57,255,20,.1);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--green);flex-shrink:0;}
+.trust-num{font-size:20px;font-weight:900;color:var(--green);line-height:1;}
+.trust-desc{font-size:11px;color:var(--silver);font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+.how-section{position:relative;padding:70px 30px;background:var(--dark);}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:10px;}
+.section-h2{font-size:32px;font-weight:900;text-transform:uppercase;letter-spacing:-.5px;margin-bottom:8px;}
+.section-desc{font-size:15px;color:var(--silver);margin-bottom:50px;max-width:600px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.step{background:var(--card);border:1px solid var(--border);padding:36px 28px;transition:border-color .2s;}
+.step:hover{border-color:rgba(57,255,20,.4);}
+.step-number{font-size:56px;font-weight:900;color:rgba(57,255,20,.08);line-height:1;margin-bottom:16px;letter-spacing:-3px;}
+.step-icon{width:50px;height:50px;background:rgba(57,255,20,.1);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;}
+.step-title{font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;color:var(--white);}
+.step-desc{font-size:13px;color:var(--silver);line-height:1.7;}
+.step-time{display:inline-block;margin-top:14px;background:rgba(57,255,20,.08);border:1px solid var(--border);color:var(--green);font-size:11px;font-weight:700;padding:4px 10px;border-radius:2px;letter-spacing:1px;}
+.why-section{position:relative;padding:70px 30px;background:var(--black);}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;}
+.why-card{background:var(--card2);border:1px solid var(--border);padding:30px;display:flex;gap:20px;align-items:flex-start;transition:border-color .2s;}
+.why-card:hover{border-color:rgba(57,255,20,.35);}
+.why-icon{width:48px;height:48px;background:rgba(57,255,20,.1);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.why-title{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;color:var(--white);}
+.why-desc{font-size:13px;color:var(--silver);line-height:1.7;}
+.reviews-section{position:relative;padding:70px 30px;background:var(--dark);}
+.reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:20px;}
+.google-rating{background:var(--card);border:1px solid var(--border);padding:16px 24px;border-radius:4px;display:flex;align-items:center;gap:16px;}
+.rating-num{font-size:38px;font-weight:900;color:var(--green);line-height:1;}
+.rating-stars{color:#FFD700;font-size:18px;letter-spacing:2px;}
+.rating-label{font-size:11px;color:var(--silver);margin-top:2px;font-weight:600;letter-spacing:.5px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.review-card{background:var(--card);border:1px solid var(--border);padding:28px;position:relative;}
+.review-stars{color:#FFD700;font-size:14px;letter-spacing:1px;margin-bottom:14px;}
+.review-text{font-size:14px;color:var(--light);line-height:1.7;margin-bottom:18px;font-style:italic;}
+.review-author{font-size:13px;font-weight:700;color:var(--white);}
+.review-location{font-size:11px;color:var(--silver);letter-spacing:.5px;}
+.review-badge{position:absolute;top:20px;right:20px;background:rgba(57,255,20,.08);border:1px solid var(--border);color:var(--green);font-size:9px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:1px;}
+.faq-section{position:relative;padding:70px 30px;background:var(--black);}
+.faq-layout{display:grid;grid-template-columns:360px 1fr;gap:60px;align-items:start;}
+.faq-aside-title{font-size:28px;font-weight:900;text-transform:uppercase;letter-spacing:-.5px;line-height:1.2;margin-bottom:16px;}
+.faq-aside-desc{font-size:14px;color:var(--silver);line-height:1.7;margin-bottom:24px;}
+.faq-cta-block{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--green);padding:24px;border-radius:4px;}
+.faq-cta-text{font-size:13px;color:var(--silver);margin-bottom:16px;line-height:1.6;}
+.faq-cta-btn{display:block;background:var(--green);color:#000;text-align:center;padding:13px;font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;border-radius:3px;text-decoration:none;margin-bottom:10px;}
+.faq-call-btn{display:block;background:transparent;border:1px solid #2a2a2a;color:var(--white);text-align:center;padding:12px;font-size:13px;font-weight:700;border-radius:3px;text-decoration:none;letter-spacing:.5px;}
+.faq-list{display:flex;flex-direction:column;gap:2px;}
+.faq-item{background:var(--card2);border:1px solid var(--border);overflow:hidden;}
+.faq-q{padding:20px 24px;font-size:15px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;letter-spacing:.2px;}
+.faq-q:hover{color:var(--green);}
+.faq-chevron{color:var(--green);font-size:18px;transition:transform .2s;}
+.faq-a{padding:0 24px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:14px;color:var(--silver);line-height:1.8;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+.faq-item.open .faq-chevron{transform:rotate(45deg);}
+.final-cta-section{position:relative;padding:70px 30px;background:var(--dark);overflow:hidden;}
+.final-cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(57,255,20,.05) 0%,transparent 70%);pointer-events:none;}
+.final-cta-inner{max-width:700px;margin:0 auto;text-align:center;}
+.final-cta-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:12px;}
+.final-cta-h2{font-size:36px;font-weight:900;text-transform:uppercase;letter-spacing:-.5px;line-height:1.15;margin-bottom:14px;}
+.final-cta-h2 .city{color:var(--green);}
+.final-cta-desc{font-size:15px;color:var(--silver);margin-bottom:36px;line-height:1.7;}
+.final-cta-desc strong{color:var(--white);}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--green);color:#000;padding:16px 36px;font-size:14px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;border-radius:3px;text-decoration:none;transition:transform .15s;}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-secondary{background:transparent;color:var(--white);padding:16px 36px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:3px;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:border-color .2s;}
+.btn-secondary:hover{border-color:var(--green);color:var(--green);}
+.final-trust{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:36px;padding-top:36px;border-top:1px solid var(--border);}
+.final-trust-item{font-size:12px;color:var(--silver);display:flex;align-items:center;gap:8px;font-weight:600;}
+.final-trust-item::before{content:'✓';color:var(--green);font-size:13px;}
+.footer{background:var(--black);border-top:1px solid var(--border);padding:20px 30px;text-align:center;font-size:11px;color:#444;letter-spacing:.5px;}
+.footer span{color:var(--green);}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--black);border-top:2px solid var(--green);display:flex;z-index:999;box-shadow:0 -4px 20px rgba(0,0,0,.5);}
+.sticky-btn{flex:1;padding:14px;text-align:center;font-size:13px;font-weight:900;letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;font-family:'Raleway',sans-serif;transition:opacity .2s;}
+.sticky-call{background:var(--card);color:var(--white);border-right:1px solid #222;}
+.sticky-call span{color:var(--green);}
+.sticky-quote{background:var(--green);color:#000;}
+@media(max-width:768px){
+.hero-inner{grid-template-columns:1fr;gap:30px;}
+.hero-h1{font-size:28px;}
+.steps{grid-template-columns:1fr;}
+.why-grid{grid-template-columns:1fr;}
+.reviews-grid{grid-template-columns:1fr;}
+.faq-layout{grid-template-columns:1fr;}
+.hero{padding-bottom:80px;}
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: TOP CALL STRIP -->
+<div class="top-strip" style="position:relative;">
+  <div class="section-label">SECTION 1 — TOP CALL STRIP (No Nav)</div>
+  <a href="tel:1300000000">📞 &nbsp;1300 XXX XXX</a>
+  <span>We call back within 10 minutes &nbsp;·&nbsp; Mon–Sat 7am–7pm</span>
+</div>
+
+<!-- SECTION 2: LOGO BAR -->
+<div class="logo-bar">
+  <div class="section-label">SECTION 2 — LOGO BAR (No Nav Links)</div>
+  <div>
+    <div class="logo"><span>Auto</span>King</div>
+    <span class="logo-sub">Mobile Mechanics</span>
+  </div>
+  <div class="logo-right">
+    <strong>★ 4.9 Google Rating</strong>
+    15,000+ Certificates Issued
+  </div>
+</div>
+
+<!-- SECTION 3: HERO + FORM -->
+<section class="hero">
+  <div class="section-label">SECTION 3 — HERO + FORM (Above the Fold)</div>
+  <div class="hero-inner">
+    <div>
+      <div class="urgency-pill">
+        <div class="urgency-dot"></div>
+        Limited slots available today in <span class="city" style="margin-left:4px;font-weight:900;">Your City</span>
+      </div>
+      <h1 class="hero-h1">
+        Mobile Roadworthy<br>Certificate,
+        <span class="city-highlight city">Your City</span>
+      </h1>
+      <p class="hero-sub">
+        <strong>QLD-licensed inspector comes to you</strong> — home, workplace or carpark.
+        No towing. No workshop visits. <strong>From $130,</strong> price confirmed before we arrive.
+      </p>
+      <div class="hero-badges">
+        <div class="badge"><span class="badge-icon">✓</span> We Come To You</div>
+        <div class="badge"><span class="badge-icon">⚡</span> Same-Day Certificate</div>
+        <div class="badge"><span class="badge-icon">🛡</span> QLD Licensed</div>
+        <div class="badge"><span class="badge-icon">★</span> 4.9 Google Rating</div>
+      </div>
+    </div>
+    <div class="form-card" id="form">
+      <div class="form-title">Get Your Quote in 60 Seconds</div>
+      <div class="form-subtitle">We call back within 10 minutes</div>
+      <div class="form-price-tag">From $130 &nbsp;·&nbsp; Price confirmed before we arrive</div>
+      <form>
+        <input type="hidden" name="gclid" id="gclid" value="">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="04XX XXX XXX">
+          </div>
+          <div class="form-group">
+            <label>Postcode</label>
+            <input type="text" placeholder="4000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Vehicle Make &amp; Model</label>
+          <input type="text" placeholder="e.g. Toyota Camry 2018">
+        </div>
+        <div class="form-group">
+          <label>Best Time to Call</label>
+          <select>
+            <option>As soon as possible</option>
+            <option>Morning (7am–12pm)</option>
+            <option>Afternoon (12pm–5pm)</option>
+          </select>
+        </div>
+        <button type="submit" class="form-cta">Get My Roadworthy Quote →</button>
+      </form>
+      <div class="form-trust"><span class="form-trust-icon">🔒</span> Your details are safe. No spam. We call you shortly.</div>
+      <div class="form-divider">or</div>
+      <a href="tel:1300000000" class="call-cta">📞 &nbsp;Call Now &nbsp;<span>1300 XXX XXX</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: TRUST BAR -->
+<div class="trust-bar">
+  <div class="section-label">SECTION 4 — TRUST BAR</div>
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-icon">★</div>
+      <div><div class="trust-num">4.9</div><div class="trust-desc">Google Rating</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📋</div>
+      <div><div class="trust-num">15,000+</div><div class="trust-desc">Certs Issued</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚡</div>
+      <div><div class="trust-num">Same Day</div><div class="trust-desc">Certificate</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📍</div>
+      <div><div class="trust-num">Mobile</div><div class="trust-desc">We Come To You</div></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🛡</div>
+      <div><div class="trust-num">QLD</div><div class="trust-desc">Licensed</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-label">SECTION 5 — HOW IT WORKS (3 Steps)</div>
+  <div class="section-inner">
+    <div class="section-tag">Simple Process</div>
+    <h2 class="section-h2">How It Works</h2>
+    <p class="section-desc">Three steps from booking to certificate. No workshop. No towing. No hassle.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-icon">📝</div>
+        <div class="step-title">Book in 60 Seconds</div>
+        <p class="step-desc">Fill in the form or call us directly. Tell us your vehicle, postcode and best time to call. That is all we need.</p>
+        <span class="step-time">Takes 60 seconds</span>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-icon">🚐</div>
+        <div class="step-title">Inspector Comes To You</div>
+        <p class="step-desc">A QLD-licensed inspector arrives at your home, workplace or carpark. You do not move the car. We come to you.</p>
+        <span class="step-time">We call back in 10 mins</span>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-icon">📄</div>
+        <div class="step-title">Certificate Same Day</div>
+        <p class="step-desc">Inspection complete, certificate issued on the spot. Your inspector walks you through any findings in person.</p>
+        <span class="step-time">Certificate in your hands</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: WHY AUTO KING -->
+<section class="why-section">
+  <div class="section-label">SECTION 6 — WHY AUTO KING (Differentiation, Not Price)</div>
+  <div class="section-inner">
+    <div class="section-tag">Why Choose Us</div>
+    <h2 class="section-h2">The Smarter Way to Get Your Roadworthy</h2>
+    <p class="section-desc" style="margin-bottom:40px;">No booking a workshop. No arranging a tow. No taking half a day off work.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📍</div>
+        <div>
+          <div class="why-title">We Come to Your Location</div>
+          <p class="why-desc">Home, workplace, carpark — anywhere across <span class="city">your area</span>. Our licensed inspector drives to you. No drop-offs, no waiting rooms.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <div>
+          <div class="why-title">Transparent Pricing From $130</div>
+          <p class="why-desc">Your exact price is confirmed before the inspector arrives. No hidden fees, no surprises on the day. From $130 depending on vehicle make and model.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <div>
+          <div class="why-title">Your Inspector Explains Everything</div>
+          <p class="why-desc">Your dedicated mechanic shows you exactly what was inspected and walks you through any findings in person — not just a printed report.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div>
+          <div class="why-title">Same-Day Certificate</div>
+          <p class="why-desc">Certificate issued on the day of inspection. We know you are often on a deadline — we work around your schedule, not the other way around.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: REVIEWS -->
+<section class="reviews-section">
+  <div class="section-label">SECTION 7 — REVIEWS (Social Proof, Cialdini)</div>
+  <div class="section-inner">
+    <div class="reviews-header">
+      <div>
+        <div class="section-tag">What Customers Say</div>
+        <h2 class="section-h2">Real Reviews. Real Customers.</h2>
+      </div>
+      <div class="google-rating">
+        <div class="rating-num">4.9</div>
+        <div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-label">Google Rating</div>
+          <div style="font-size:11px;color:var(--silver);">200+ verified reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-badge">VERIFIED</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Inspector arrived within 2 hours of booking. Certificate done before lunch. Saved me an entire day off work. Will absolutely use again.</p>
+        <div class="review-author">Michael T.</div>
+        <div class="review-location">Chermside, Brisbane</div>
+      </div>
+      <div class="review-card">
+        <div class="review-badge">VERIFIED</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Booked online, inspector was at my workplace carpark by 11am. He showed me exactly what was checked. Same-day certificate, incredibly professional.</p>
+        <div class="review-author">Sarah K.</div>
+        <div class="review-location">Southport, Gold Coast</div>
+      </div>
+      <div class="review-card">
+        <div class="review-badge">VERIFIED</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Price was confirmed before they arrived — no surprises. Inspector was thorough and friendly. Certificate in hand same day. Highly recommend to anyone.</p>
+        <div class="review-author">Dave R.</div>
+        <div class="review-location">Cairns North</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: FAQ -->
+<section class="faq-section">
+  <div class="section-label">SECTION 8 — FAQ (Objection Elimination)</div>
+  <div class="section-inner">
+    <div class="faq-layout">
+      <div>
+        <div class="section-tag">Common Questions</div>
+        <h2 class="faq-aside-title">Still Have Questions?</h2>
+        <p class="faq-aside-desc">We have answered the most common ones here. Prefer to speak to someone? Our team is ready.</p>
+        <div class="faq-cta-block">
+          <p class="faq-cta-text">Ready to book? Get a quote in 60 seconds or call us — we call back within 10 minutes.</p>
+          <a href="#form" class="faq-cta-btn">Get My Quote →</a>
+          <a href="tel:1300000000" class="faq-call-btn">📞 Call 1300 XXX XXX</a>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a roadworthy certificate and when do I need one? <span class="faq-chevron">+</span></div>
+          <div class="faq-a">A roadworthy certificate (RWC) confirms your vehicle meets QLD minimum safety standards. You need one when selling a registered vehicle, re-registering an unregistered vehicle, or clearing a defect notice. Our QLD-licensed inspectors assess brakes, tyres, lights, steering, and structural components.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does the inspection take? <span class="faq-chevron">+</span></div>
+          <div class="faq-a">Most roadworthy inspections take between 45 and 90 minutes depending on the vehicle. You do not need to be present for the entire inspection — our inspector will contact you when complete and walk you through the results in person.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Where exactly do you come to? <span class="faq-chevron">+</span></div>
+          <div class="faq-a">We come to your home, workplace, carpark or any accessible location across <span class="city">your area</span>. As long as there is enough space for our inspector to safely carry out the inspection, we can come to you. No workshop visit required.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much does a roadworthy certificate cost? <span class="faq-chevron">+</span></div>
+          <div class="faq-a">Roadworthy certificates start from $130 and vary by vehicle make, model, and age. Your exact price is confirmed before the inspector arrives — no surprises on the day. We give you a firm quote when you book.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I get the certificate on the same day? <span class="faq-chevron">+</span></div>
+          <div class="faq-a">Yes. If your vehicle passes, the certificate is issued the same day. If minor items need attention, your inspector will explain exactly what needs to be fixed before the certificate can be issued.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: FINAL CTA -->
+<section class="final-cta-section">
+  <div class="section-label">SECTION 9 — FINAL CTA (Last Conversion Point)</div>
+  <div class="final-cta-inner">
+    <div class="final-cta-label">Ready to Book?</div>
+    <h2 class="final-cta-h2">Mobile Roadworthy Certificate,<br><span class="city">Your City</span></h2>
+    <p class="final-cta-desc"><strong>Same-day availability.</strong> QLD-licensed inspector comes to you. From $130 — price confirmed before we arrive. Limited inspection slots available today in <span class="city">your area</span>.</p>
+    <div class="cta-buttons">
+      <a href="#form" class="btn-primary">Get My Quote →</a>
+      <a href="tel:1300000000" class="btn-secondary">📞 Call 1300 XXX XXX</a>
+    </div>
+    <div class="final-trust">
+      <span class="final-trust-item">QLD Licensed Inspectors</span>
+      <span class="final-trust-item">Price Confirmed Before Arrival</span>
+      <span class="final-trust-item">Same-Day Certificate</span>
+      <span class="final-trust-item">No Hidden Fees</span>
+      <span class="final-trust-item">4.9 Star Google Rating</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  2026 Auto King Mobile Mechanics &nbsp;·&nbsp; <span>autoking.com.au</span> &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; QLD Licensed &nbsp;·&nbsp; ABN XX XXX XXX XXX
+  <br><br>
+  <span style="color:#333;font-size:10px;">DEV NOTE: No header navigation. No footer navigation. No outbound links. Single goal page. Only exits = form submit or phone call. Sticky bar padding-bottom on mobile required.</span>
+</div>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="tel:1300000000" class="sticky-btn sticky-call">📞 <span>Call Now</span></a>
+  <a href="#form" class="sticky-btn sticky-quote">Get My Quote →</a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  function getParam(n){var r=new RegExp('[?&]'+n+'(=([^&#]*)|&|#|$)'),m=r.exec(window.location.href);if(!m)return null;return decodeURIComponent(m[2].replace(/\+/g,' '));}
+  function getCookie(n){var v='; '+document.cookie,p=v.split('; '+n+'=');if(p.length===2)return p.pop().split(';').shift();}
+  var gclid=getParam('gclid')||getCookie('gclid');
+  if(gclid){var e=new Date();e.setDate(e.getDate()+30);document.cookie='gclid='+gclid+'; expires='+e.toUTCString()+'; path=/';var f=document.querySelector('input[name="gclid"]');if(f)f.value=gclid;}
+  function updateCity(c){document.querySelectorAll('.city').forEach(function(el){el.textContent=c;});}
+  var loc=getParam('location')||getParam('city')||getParam('region');
+  if(loc){updateCity(loc);return;}
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      function(p){fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+p.coords.latitude+'&longitude='+p.coords.longitude+'&localityLanguage=en').then(r=>r.json()).then(d=>updateCity(d.city||d.locality||'Your City')).catch(()=>updateCity('Your City'));},
+      function(){updateCity('Your City');}
+    );
+  }
+});
+</script>
+</body>
+</html>
